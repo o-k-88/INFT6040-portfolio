@@ -81,6 +81,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font);
   font-size: var(--text-base);
   line-height: 1.6;
@@ -89,6 +92,10 @@ body {
   transition:
     background-color var(--transition),
     color var(--transition);
+}
+
+main {
+  flex: 1;
 }
 
 img {
@@ -695,11 +702,63 @@ textarea {
   gap: 1.5rem;
 }
 
+/* Swiper projects carousel */
+.projects-swiper {
+  padding: 0.5rem 0 3rem;
+}
+.projects-swiper .swiper-slide {
+  height: auto; /* stretch cards to equal height */
+}
+.projects-swiper .swiper-button-prev,
+.projects-swiper .swiper-button-next {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+/* Shrink the default chevron glyph to fit the circular button */
+.projects-swiper .swiper-button-prev::after,
+.projects-swiper .swiper-button-next::after {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.projects-swiper .swiper-button-prev:hover,
+.projects-swiper .swiper-button-next:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+.projects-swiper .swiper-button-prev:active,
+.projects-swiper .swiper-button-next:active {
+  transform: scale(0.96);
+}
+.projects-swiper .swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.projects-swiper .swiper-pagination-bullet-active {
+  background: var(--accent);
+}
+
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   transition:
     transform var(--transition),
     box-shadow var(--transition),
@@ -718,8 +777,16 @@ textarea {
   justify-content: center;
 }
 
+.project-icon {
+  font-size: 3rem;
+  color: #fff;
+}
+
 .project-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-title {
@@ -756,6 +823,7 @@ textarea {
 .project-links {
   display: flex;
   gap: 0.75rem;
+  margin-top: auto;
 }
 
 .project-link {

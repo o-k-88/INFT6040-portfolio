@@ -96,7 +96,8 @@ async function initPage() {
   );
 
   const staggerGroups = [
-    { selector: ".project-card", delay: 0.1 },
+    // .project-card excluded: it now lives in a Swiper carousel where off-screen
+    // slides never intersect the viewport and would stay hidden (opacity:0).
     { selector: ".testimonial-card", delay: 0.15 },
     { selector: ".skill-category", delay: 0.1 },
   ];
